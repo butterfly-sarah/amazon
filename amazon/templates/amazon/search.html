@@ -1,0 +1,16 @@
+{% extends 'amazon/layouts/base.html'%}
+{% load static %}
+{% block body%}
+<form action="" method="POST">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputname1" class="form-label">product</label>
+    <input type="text" class="form-control" id="exampleInputname1" name="searchname" aria-describedby="nameHelp">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{%for i in product%}
+<a href="{%url 'info' i.id %}" class="btn btn-primary">view {{i.product}}</a>
+{%endfor%}
+{%endblock%}
